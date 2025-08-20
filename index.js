@@ -1,7 +1,7 @@
     /* Объявление переменных */
 let movieArr   /* переменная для хранения массивов фильмов */
 
-const url = "http://www.omdbapi.com/?apikey=54cfe099&"    /* Ссылка на АПИ с моим ключом */
+const url = "https://www.omdbapi.com/?apikey=54cfe099&"    /* Ссылка на АПИ с моим ключом */
 
     /* запись в переменные элементов страницы */
 const searchForm = document.getElementById("search")
