@@ -55,7 +55,8 @@ searchBtn.addEventListener("click", function(e) {
     /* третий then, запись полного массива с фильмами в movieArr (пригодится для сравнения наполнения 
     локалСторадж и фактически отраженных фильмов) и запуск функции отрисовки*/
     .then(filledArr => { 
-        movieArr = filledArr       
+        movieArr = filledArr 
+        console.log(movieArr)      
         render(filledArr)
     })  
 })
@@ -67,7 +68,13 @@ function render (fullMovieArr) {
         /* Проверка на наличие фильмов в локал сторадже 
         во избежание дублирования добавления */
         /* загрузка перечня фильмов из Локал Стораджа*/
-        let localMovieWatchlist = JSON.parse(localStorage.getItem("addedMovie"))
+        let localMovieWatchlist
+        if (!localStorage.getItem("addedMovie")) {
+            localMovieWatchlist = []
+        } else {
+            localMovieWatchlist = JSON.parse(localStorage.getItem("addedMovie"))
+        }
+        
         /* возврат булиевого значения, указывающий на наличие 
         или отсутствие полученного от АПИ фильма в локал сторадже (фильм уже был добавлен пользователем) */
         let isAdded = Boolean(localMovieWatchlist.filter(function(localMovie){
